@@ -1,0 +1,140 @@
+#include <iostream>
+using namespace std;
+
+template<typename T>
+class deque
+{
+   
+public:
+// Constructor to initialize deque
+	T *p;
+	int	i;
+	int size2;
+    deque(int size1){
+        T *p=new T[size1];
+        size2=size1;
+        i=0;
+    }
+    ~deque(){
+   //     delete [] p;
+    }
+ 
+    //TODO push_back function
+ 	void push_back(T data){//error push_back twice causes an error
+ 		if(i==size2){
+ 			cout<<"isFull"<<endl;
+		 }else{
+		 	p[i]=data;
+		 	i++;
+		 	cout<<"Insert Back "<<data<<endl;
+		 }
+	}
+	void push_front(T data){//
+		if(i==size2){
+ 			cout<<"isFull"<<endl;
+		 }else{
+		 	for(int k=i;k>=1;k--){
+		 		p[k]=p[k-1];
+			 }
+			p[0]=data;
+		 	i++;
+		 	cout<<"Insert Front "<<data<<endl;
+		 }
+	}
+    //TODO push_front function
+    void pop_back(){
+        if(i==0){
+        	cout<<"isEmpty"<<endl;
+		}else{
+			cout<<"Remove Back "<<p[i-1]<<endl;
+			//p[i-1]=p[i];
+			i--;
+		}
+   } 
+ 
+    void pop_front(){
+         if(i==0){
+        	cout<<"isEmpty"<<endl;
+		}else{
+			cout<<"Remove Front "<<p[0]<<endl;
+			i--;
+			for(int j=0;j<i;j++){
+				p[j]=p[j+1];
+			}
+		}
+ }   
+ 
+    void insert(int index,T data){
+    	//not this
+	}
+	
+	void erase(int index){
+		if(i==0){
+			cout<<"isEmpty"<<endl;
+		}//not this
+	}
+ 
+    //TODO item_erase function
+	
+	void item_erase(T data){
+		if(i==0){
+			cout<<"isEmpty"<<endl;
+		}//not this
+		
+	}
+	 
+    void front(){
+        if(i==0){
+			cout<<"isEmpty"<<endl;
+		}else{
+			cout<<"Front "<<p[0]<<endl;
+		}
+    }
+    void back(){
+        if(i==0){
+			cout<<"isEmpty"<<endl;
+		}else{
+			cout<<"Back "<<p[i-1]<<endl;
+		}
+    }
+    void clear(){
+    	i=0;//
+    }
+    void size(){
+        cout<<i<<endl;
+    }
+};
+
+int main(){
+    deque<string> Qstring(3);
+    Qstring.push_back("apple");
+  //  Qstring.push_front("banana");
+  //  Qstring.push_front("cat");
+    Qstring.push_back("dog");
+    Qstring.insert(1,"puppy");
+    Qstring.front();
+    Qstring.back();
+    Qstring.pop_front();
+    Qstring.front();
+    cout << "#################" << endl;
+    //deque<int> Qint(5);
+    //Qint.pop_back();
+    //Qint.push_front(1000);
+    //Qint.item_erase(0);
+    /*Qint.push_back(-900);
+    Qint.erase(0);
+    Qint.insert(4,678);
+    Qint.insert(1,678);
+    Qint.clear();
+    Qint.size();
+    cout << "#################" << endl;
+    deque<char> Qchar(2);
+    Qchar.push_back('a');
+    Qchar.push_front('b');
+    Qchar.size();
+    Qchar.erase(2);
+    Qchar.item_erase('h');
+    Qchar.item_erase('a');*/
+ 
+    return 0;
+}

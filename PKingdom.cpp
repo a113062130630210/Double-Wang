@@ -263,7 +263,7 @@ signed main()
                 else if (unpairsource.size() == 0) // no unpairsource
                 {
                     for (int i = 0; i < unpairsink.size(); i++)
-                        cout << unpairsink[i] << " " << re[wv[0].first] << "\n";
+                        cout << re[unpairsink[i]] << " " << re[wv[0].first] << "\n";
                 }
                 else if (unpairsink.size() != 0 && unpairsource.size() != 0)
                 {
